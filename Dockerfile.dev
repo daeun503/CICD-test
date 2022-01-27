@@ -1,0 +1,13 @@
+# alpine은 도커에서는 가장 작은 용량의 이미지
+# node:alpin은 node 베이스이미지를 위해서 정말 필요한 부분만을 담아놓은 이미지
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+CMD ["npm", "run", "start"]
